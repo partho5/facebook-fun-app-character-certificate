@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="UTF-8">
+
+	<style type="text/css">
+		#header{
+			text-align: center;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+<script type="text/javascript" src="script/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		});
+		
+
+		var name='';
+		//name=name.split(' ')[0];
+		name=prompt("Write your name in বাংলা font");
+		var name_length=name.length;
+		var x='',xx='';
+
+
+		/*
+		var x='',y='';
+		var except=new Array(2473,2481,2483,2484,2485,2490,2491,2501,2502,2505,2506,2511,2512,2513,2514,2515,2516,2517,2518,2520,2521,2522,2523,2526);
+		var except_lengthl=except.length;
+
+		
+		function EXCEPT(x){
+			var i=0;
+			while(i<except_lengthl){
+				if(x==except[i++]){
+					return true;
+				}
+			}
+			return false;	
+		}
+		*/
+
+		var ALL_CHAR={2437:'a',2438:'a',2439:'i',2440:'ee',2441:'u',2442:'u',2447:'e',2448:'oi',2451:'o',2452:'ou',2453:'k',2454:'kh',2455:'g',2456:'gh',2457:'ng',2458:'c',2459:'ch',2460:'j',2461:'jh',2462:'y',2463:'t',2464:'th',2465:'d',2466:'dh',2467:'n',2468:'t',2469:'th',2470:'d',2471:'dh',2472:'n',2474:'p',2475:'ph',2476:'b',2477:'v',2478:'m',2479:'y',2480:'r',2482:'l',2486:'sh',2487:'sh',2488:'s',2489:'h',2493:'h',2494:'a',2495:'i',2496:'ee',2497:'u',2498:'u',2499:'ri',2503:'e',2504:'oi',2507:'o',2508:'ou',2509:'',2510:'t',2524:'r',2525:'r',2527:'y',32:' '};
+		/* 2519:'ৗ', */
+
+		/*
+		for(var i=2453;i<2531;i++){
+			if(!EXCEPT(i))
+			xx+=(i)+":'"+String.fromCharCode(i)+"',";
+		}
+		*/
+
+		var vowel=new Array(2438,2439,2440,2441,2442,2443,2447,2448,2451,2452,2494,2495,2496,2497,2498,2499,2500,2503,2504,2507,2508,2509,2510);
+		var vowel_length=vowel.length;
+
+		function VOWEL(x){
+			var i=0;
+			while(i<vowel_length){
+				if(x==vowel[i++]){
+					return true;
+				}
+			}
+			return false;	
+		}
+		
+		for(var i=0;i<name_length;i++){
+			var c=ALL_CHAR[name.charAt(i).charCodeAt()];
+			if( i!=(name_length-1) && VOWEL(i+1) && VOWEL(i) ) c+='o';
+			x+=c;
+			xx+=c+" ";
+		}
+		
+		document.writeln(x);
+		//document.writeln(VOWEL(2494)? 'vowel':'not vowel');
+
+		//document.writeln(' '.charCodeAt());
+
+
+
+	</script>
+</body>
+</html>
